@@ -8,8 +8,8 @@ import Model exposing (..)
 import Nav.Msg exposing (NavMsg(..))
 
 import Page.Welcome
-import Page.Signin
-import Page.EmailSubscription
+import Page.Meetup
+-- import Page.EmailSubscription
 import Page.NotFound
 
 
@@ -23,15 +23,15 @@ view model =
 
 pageContent : Model -> Html NavMsg
 pageContent model =
-  case model.page of
+  case model.navModel.page of
     WelcomePage ->
       Page.Welcome.view model
 
-    SigninPage ->
-      Page.Signin.view model
+    MeetupPage ->
+      Page.Meetup.view model
 
-    EmailSubscriptionPage ->
-      Page.EmailSubscription.view model
+    -- EmailSubscriptionPage ->
+    --   Page.EmailSubscription.view model
 
     NotFoundPage ->
       Page.NotFound.view model
@@ -43,9 +43,9 @@ pageNav model =
         [ div []
               [ navLink ToWelcomePage "Welcome"
               , text "|"
-              , navLink ToSigninPage "Sign in"
-              , text "|"
-              , navLink ToEmailSubscriptionPage "Email Subscription"
+              , navLink ToMeetupPage "Meetup"
+              -- , text "|"
+              -- , navLink ToEmailSubscriptionPage "Email Subscription"
               ]
         ]
 

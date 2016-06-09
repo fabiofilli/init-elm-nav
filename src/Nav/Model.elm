@@ -1,12 +1,12 @@
 module Nav.Model exposing (..)
 
 import Hop.Types exposing (Location, newLocation)
+import Nav.Msg exposing (NavMsg)
 
 
 type Page
   = WelcomePage
-  | SigninPage
-  | EmailSubscriptionPage
+  | MeetupPage
   | NotFoundPage
 
 
@@ -22,8 +22,7 @@ newNavModel page location =
     , page = page
     }
 
-{- TODO
+
 initNavModel : ( Page, Hop.Types.Location ) -> ( NavModel, Cmd NavMsg )
 initNavModel ( page, location ) =
   ( newNavModel page location, Cmd.none )
--}

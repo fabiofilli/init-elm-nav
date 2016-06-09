@@ -20,16 +20,9 @@ update navMsg navModel =
       in
         ( navModel, Nav.navigationCmd path )
 
-    ToSigninPage ->
+    ToMeetupPage ->
       let
-        path = Nav.reverse SigninPage
-
-      in
-        ( navModel, Nav.navigationCmd path )
-
-    ToEmailSubscriptionPage ->
-      let
-        path = Nav.reverse EmailSubscriptionPage
+        path = Nav.reverse MeetupPage
 
       in
         ( navModel, Nav.navigationCmd path )

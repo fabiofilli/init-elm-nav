@@ -5,8 +5,8 @@ import Html exposing (..)
 import Hop exposing (matchUrl)
 import Hop.Types exposing (Router)
 
-import Model exposing (..)
-import Update exposing (..)
+import Model exposing (init)
+import Update exposing (update, urlUpdate)
 import Msg exposing (..)
 import View exposing (..)
 
@@ -18,7 +18,7 @@ main =
     Navigation.program Nav.urlParser
         { init = init
         , update = update
-        , urlUpdate = Nav.urlUpdate
+        , urlUpdate = urlUpdate
         , view = view
         , subscriptions = \_ -> Sub.none
         }

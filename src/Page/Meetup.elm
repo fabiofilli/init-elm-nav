@@ -1,4 +1,4 @@
-module Page.Welcome exposing (..)
+module Page.Meetup exposing (..)
 
 import Html exposing (..)
 
@@ -9,5 +9,5 @@ import Msg exposing (..)
 view : NavModel -> Html msg
 view model =
     div []
-        [ text "Welcome"
+        [ text "Meetup"
         ]

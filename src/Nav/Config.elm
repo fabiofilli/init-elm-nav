@@ -39,20 +39,17 @@ reverse page =
     WelcomePage ->
       Hop.matcherToPath matchWelcomePage []
 
-    SigninPage ->
-      Hop.matcherToPath matchSigninPage []
-
-    EmailSubscriptionPage ->
-      Hop.matcherToPath matchEmailSubscriptionPage []
+    MeetupPage ->
+      Hop.matcherToPath matchMeetupPage []
 
     NotFoundPage ->
       ""
 
+
 matchers : List (PathMatcher Page)
 matchers =
     [ matchWelcomePage
-    , matchSigninPage
-    , matchEmailSubscriptionPage
+    , matchMeetupPage
     ]
 
 
@@ -61,11 +58,6 @@ matchWelcomePage =
     match1 WelcomePage "/welcome"
 
 
-matchSigninPage : PathMatcher Page
-matchSigninPage =
-    match1 SigninPage "/sign_in"
-
-
-matchEmailSubscriptionPage : PathMatcher Page
-matchEmailSubscriptionPage =
-    match1 EmailSubscriptionPage "/email_subscription"
+matchMeetupPage : PathMatcher Page
+matchMeetupPage =
+    match1 MeetupPage "/meetup"

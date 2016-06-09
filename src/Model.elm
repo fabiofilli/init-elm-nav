@@ -3,7 +3,7 @@ module Model exposing (..)
 import Hop.Types
 import Msg exposing (..)
 
-import Nav.Model exposing (NavModel, Page, newNavModel)
+import Nav.Model exposing (NavModel, Page, initNavModel)
 
 
 type alias Model =
@@ -11,31 +11,14 @@ type alias Model =
   }
 
 
-initModel : Model
-initModel =
-    { navModel = newNavModel
-    }
-
-
-init : Model -> ( Model, Cmd Msg )
-init =
-  ( initModel, Cmd.none )
-
-{- TODO
-init : ( NavModel, Cmd NavMsg ) -> ( Model, Cmd Msg )
-init ( page, location ) =
-  ( initNavModel page location, Cmd.none )
-
-
-
-init : ( Model -> Cmd Msg ) -> ( NavModel, Cmd NavMsg ) -> ( Model, Cmd Msg )
-init ( page, location ) =
-  ( model, )
-
-
-
-initModel : NavModel -> Model
+initModel : Page -> Hop.Types.Location -> Model
 initModel page location =
-    { navModel = newNavModel
-    }
--}
+    let
+      newNavModel = fst (initNavModel (page , location))
+    in
+      { navModel = newNavModel }
+
+
+init : ( Page, Hop.Types.Location ) -> ( Model, Cmd Msg )
+init ( page, location ) =
+  ( initModel page location, Cmd.none )
