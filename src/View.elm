@@ -6,10 +6,10 @@ import Html.Events exposing (onClick)
 
 import Model exposing (..)
 import Nav.Msg exposing (NavMsg(..))
+import Nav.View as Nav
 
 import Page.Welcome
 import Page.Meetup
--- import Page.EmailSubscription
 import Page.NotFound
 
 
@@ -30,9 +30,6 @@ pageContent model =
     MeetupPage ->
       Page.Meetup.view model
 
-    -- EmailSubscriptionPage ->
-    --   Page.EmailSubscription.view model
-
     NotFoundPage ->
       Page.NotFound.view model
 
@@ -41,18 +38,8 @@ pageNav : Model -> Html NavMsg
 pageNav model =
     div []
         [ div []
-              [ navLink ToWelcomePage "Welcome"
+              [ Nav.link ToWelcomePage "" "Welcome"
               , text "|"
-              , navLink ToMeetupPage "Meetup"
-              -- , text "|"
-              -- , navLink ToEmailSubscriptionPage "Email Subscription"
+              , Nav.link ToMeetupPage "" "Meetup"
               ]
         ]
-
-
-navLink : NavMsg -> String -> Html NavMsg
-navLink navMsg navLinkName =
-  a [ href "javascript://"
-    , onClick navMsg
-    ]
-    [ text navLinkName ]

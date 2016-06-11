@@ -13,6 +13,11 @@ import View exposing (..)
 import Nav.Config as Nav
 
 
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
+
+
 main : Program Never
 main =
     Navigation.program Nav.urlParser
@@ -20,5 +25,5 @@ main =
         , update = update
         , urlUpdate = urlUpdate
         , view = view
-        , subscriptions = \_ -> Sub.none
+        , subscriptions = subscriptions
         }

@@ -14,7 +14,7 @@ update msg model =
     NavMsg navMsg ->
       let
         ( updatedModel, cmd ) =
-          Nav.Update.update navMsg model
+          Nav.Update.update navMsg model.navModel
       in
         ( { model | navModel = updatedModel }, Cmd.map NavMsg cmd )
 

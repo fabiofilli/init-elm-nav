@@ -2,11 +2,12 @@ module Page.Welcome exposing (..)
 
 import Html exposing (..)
 
-import Nav.Model exposing (..)
+import Model exposing (..)
+--import Nav.Model exposing (..)
 import Msg exposing (..)
 
 
-view : NavModel -> Html msg
+view : Model -> Html msg
 view model =
     div []
         [ text "Welcome"
