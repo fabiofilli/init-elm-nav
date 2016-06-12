@@ -8,15 +8,15 @@ import Hop.Types
 import Nav.Config
 
 
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
     NavMsg navMsg ->
       let
-        ( updatedModel, cmd ) =
+        ( updatedNavModel, cmd ) =
           Nav.Update.update navMsg model.navModel
       in
-        ( { model | navModel = updatedModel }, Cmd.map NavMsg cmd )
+        ( { model | navModel = updatedNavModel }, Cmd.map NavMsg cmd )
 
 
 urlUpdate : ( Page, Hop.Types.Location ) -> Model -> ( Model, Cmd Msg )

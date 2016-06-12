@@ -5,7 +5,7 @@ import Html exposing (..)
 import Hop exposing (matchUrl)
 import Hop.Types exposing (Router)
 
-import Model exposing (init)
+import Model exposing (Model, init)
 import Update exposing (update, urlUpdate)
 import Msg exposing (..)
 import View exposing (..)

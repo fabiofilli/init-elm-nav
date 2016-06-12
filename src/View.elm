@@ -5,9 +5,8 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 
 import Model exposing (..)
-import Msg
-import Nav.Msg exposing (NavMsg(..))
-import Nav.View as Nav
+import Msg exposing (Msg(..))
+import Nav.Msg
 import Nav.Model exposing (Page(..))
 
 import Page.Welcome
@@ -15,7 +14,7 @@ import Page.Meetup
 import Page.NotFound
 
 
-view : Model -> Html NavMsg
+view : Model -> Html Msg
 view model =
     div []
         [ pageNav model
@@ -23,7 +22,7 @@ view model =
         ]
 
 
-pageContent : Model -> Html NavMsg
+pageContent : Model -> Html Msg
 pageContent model =
   case model.navModel.page of
     WelcomePage ->
@@ -36,12 +35,21 @@ pageContent model =
       Page.NotFound.view model
 
 
-pageNav : Model -> Html NavMsg
+pageNav : Model -> Html Msg
 pageNav model =
     div []
         [ div []
-              [ Nav.link ToWelcomePage "" "Welcome"
+              [ link (NavMsg Nav.Msg.ToWelcomePage) "" "Welcome"
               , text "|"
-              , Nav.link ToMeetupPage "" "Meetup"
+              , link (NavMsg Nav.Msg.ToMeetupPage) "" "Meetup"
               ]
         ]
+
+
+link : Msg -> String -> String -> Html Msg
+link msg className navLinkName =
+  a [ class className
+    , href "javascript://"
+    , onClick msg
+    ]
+    [ text navLinkName ]
