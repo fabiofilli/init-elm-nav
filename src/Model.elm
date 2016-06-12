@@ -3,7 +3,7 @@ module Model exposing (..)
 import Hop.Types
 import Msg exposing (..)
 
-import Nav.Model exposing (NavModel, Page, initNavModel)
+import Nav.Model exposing (NavModel, Page(..), initNavModel)
 
 
 type alias Model =

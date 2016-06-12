@@ -5,8 +5,10 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 
 import Model exposing (..)
+import Msg
 import Nav.Msg exposing (NavMsg(..))
 import Nav.View as Nav
+import Nav.Model exposing (Page(..))
 
 import Page.Welcome
 import Page.Meetup
